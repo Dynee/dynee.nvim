@@ -773,7 +773,8 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        javascript = { 'prettierd' },
+        javascript = { 'biome' },
+        json = { 'biome' },
         go = { 'goimports', 'gofmt' },
         python = function(bufnr)
           if require('conform').get_formatter_info('ruff_format', bufnr).available then
@@ -782,6 +783,8 @@ require('lazy').setup({
             return { 'isort', 'black' }
           end
         end,
+        typescript = { 'biome' },
+        typescriptreact = { 'biome' },
         -- Use the "*" filetype to run formatters on all filetypes.
         ['*'] = { 'codespell' },
         -- Use the "_" filetype to run formatters on filetypes that don't
