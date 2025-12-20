@@ -555,6 +555,9 @@ require('lazy').setup({
           --  To jump back, press <C-t>.
           map('grd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
 
+          -- In normal mode, map Control+b to the "go back" action (<C-o>)
+          vim.keymap.set('n', '<leader>j', '<C-o>', { desc = 'Go back to previous location' })
+
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
           map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
