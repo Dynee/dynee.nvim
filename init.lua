@@ -776,8 +776,8 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        javascript = { 'biome' },
-        json = { 'biome' },
+        javascript = { 'prettier' },
+        json = { 'prettier' },
         go = { 'goimports', 'gofmt' },
         python = function(bufnr)
           if require('conform').get_formatter_info('ruff_format', bufnr).available then
@@ -786,8 +786,10 @@ require('lazy').setup({
             return { 'isort', 'black' }
           end
         end,
-        typescript = { 'biome' },
-        typescriptreact = { 'biome' },
+        html = { 'prettier' },
+        typescript = { 'prettier' },
+        typescriptreact = { 'prettier' },
+        terraform = { 'terraform_fmt' },
         -- Use the "*" filetype to run formatters on all filetypes.
         ['*'] = { 'codespell' },
         -- Use the "_" filetype to run formatters on filetypes that don't
@@ -795,7 +797,7 @@ require('lazy').setup({
         ['_'] = { 'trim_whitespace' },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        -- javascript = { "prettier", "prettier", stop_after_first = true },
       },
     },
   },
@@ -967,7 +969,23 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'terraform' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'terraform',
+        'svelte',
+        'python',
+        'go',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
