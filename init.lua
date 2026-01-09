@@ -902,12 +902,12 @@ require('lazy').setup({
   },
 
   {
-    'bluz71/vim-moonfly-colors',
-    name = 'moonfly',
+    'morhetz/gruvbox',
+    name = 'gruvbox',
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'moonfly'
+      vim.cmd.colorscheme 'gruvbox'
     end,
   },
 
